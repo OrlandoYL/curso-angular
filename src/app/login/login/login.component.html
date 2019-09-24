@@ -1,4 +1,4 @@
-{{formulario.valid}}
+{{milogin.errors | json}}
 <div fxLayout="row" fxLayoutAlign="center center" class="example-container">
     <form class="example-form" #formulario="ngForm" (ngSubmit)=autenticar(formulario)>
         <mat-card class="example-card">
@@ -10,7 +10,9 @@
                     <tr>
                         <td>
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Usuario" [(ngModel)]="usuarioAutentica.usuario" name="login" required minlength="4" />
+                                <input matInput placeholder="Usuario" required #milogin="ngModel" [(ngModel)]="usuarioAutentica.usuario" name="login" required minlength="4" />
+                                <mat-error *ngIf="milogin.errors?.minlength">Debe ingresar 4 caracteres</mat-error>                                                            
+                                <mat-error *ngIf="milogin.errors?.required">Debe ingresar el usuario</mat-error>                            
                             </mat-form-field>
                         </td>
                     </tr>
@@ -24,7 +26,7 @@
                 </table>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button type="submit" [disable]="!formulario.valid" color="primary">Login</button>
+                <button mat-raised-button type="submit" [disabled]="!formulario.valid" color="primary">Login</button>
             </mat-card-actions>
         </mat-card>
     </form>
