@@ -1,5 +1,6 @@
+{{formulario.valid}}
 <div fxLayout="row" fxLayoutAlign="center center" class="example-container">
-    <form class="example-form" #formulario=ngForm (ngSubmit)=autenticar(formulario)>
+    <form class="example-form" #formulario="ngForm" (ngSubmit)=autenticar(formulario)>
         <mat-card class="example-card">
             <mat-card-header>
                 <mat-card-title>Login</mat-card-title>
@@ -9,21 +10,21 @@
                     <tr>
                         <td>
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Usuario" [ngModel]="usuarioAutentica.usuario" name="login" required minlength="4" />
+                                <input matInput placeholder="Usuario" [(ngModel)]="usuarioAutentica.usuario" name="login" required minlength="4" />
                             </mat-form-field>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Clave" [ngModel]="usuarioAutentica.clave" type="password" name="clave" required />
+                                <input matInput placeholder="Clave" [(ngModel)]="usuarioAutentica.clave" type="password" name="clave" required />
                             </mat-form-field>
                         </td>
                     </tr>
                 </table>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button type="submit" color="primary">Login</button>
+                <button mat-raised-button type="submit" [disable]="!formulario.valid" color="primary">Login</button>
             </mat-card-actions>
         </mat-card>
     </form>

@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   }
   autenticar(algo:NgForm){
     console.log('llego', algo.value);
+    console.log('modelo',this.usuarioAutentica);
+    
     
   }
 
