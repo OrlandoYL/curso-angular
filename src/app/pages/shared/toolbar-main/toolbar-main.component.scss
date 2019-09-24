@@ -1,0 +1,21 @@
+$iconwidth: 56px;
+
+.button-toogle{
+
+    display: none;
+    padding: 0;
+    min-width: $iconwidth;
+
+    @media (max-width: 720px) {
+        display: flex;
+    }
+
+}
+
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }

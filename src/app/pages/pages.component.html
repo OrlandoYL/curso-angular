@@ -1,0 +1,26 @@
+<mat-drawer-container class="app-drawer-container">
+  <mat-drawer #drawer [mode]="espantallaChica()?'over':'side'" [opened]="!espantallaChica()">
+
+    <mat-toolbar color="primary">
+      <span>Ventas</span>
+    </mat-toolbar>
+
+
+    <app-menu-main>
+
+    </app-menu-main>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+      
+        <app-toolbar-main (ocultarPanel)="drawer.toggle()"></app-toolbar-main>    
+   
+    <router-outlet></router-outlet>
+
+
+  </mat-drawer-content>
+
+
+
+</mat-drawer-container>
